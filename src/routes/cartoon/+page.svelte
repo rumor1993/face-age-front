@@ -20,12 +20,12 @@
 
         // 파일 업로드 처리
         const fileName = new Date().getTime().toString(36);
-        const response = await fetch(`http://13.125.227.106:8080/cartoon?fileName=${fileName}`, {
+        const response = await fetch(`http://api.rumor-lab.com/cartoon?fileName=${fileName}`, {
             method: 'POST',
             body: formData
         })
         const jsonData = await response.json()
-        imageUrl = "http://13.125.227.106:8080" + jsonData.cartoonImagePath
+        imageUrl = "http://api.rumor-lab.com" + jsonData.cartoonImagePath
         document.querySelector(".svelte-card").style.backgroundImage = `url(${imageUrl})`
         isLoadBarHidden = true
 
