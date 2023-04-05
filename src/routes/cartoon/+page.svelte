@@ -5,13 +5,15 @@
     import { fade } from 'svelte/transition';
     import { Alert } from 'flowbite-svelte';
 
+    const isMobile = /Mobile|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
     let imageUrl = "/src/lib/images/upload.png";
     let isLoadBarHidden = true
     let isSvelteCardHidden = false
     let isAlert = false
     let loadingBarSize = 20
 
-    if (matchMedia("screen and (max-width: 440px)").matches) {
+    if (isMobile) {
         loadingBarSize = 15
     }
 
