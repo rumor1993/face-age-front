@@ -1,13 +1,13 @@
 <script>
 	import SvelteCard from "./component/SvelteCard.svelte";
 	import Button from "./component/Button.svelte";
+	import Header from "./Header.svelte";
 </script>
 
 <svelte:head>
 	<title>Home</title>
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
-
 <section>
 	<h1>
 		<span class="welcome">
