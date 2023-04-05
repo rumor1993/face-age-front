@@ -214,12 +214,5 @@
         section {
             height: 720px;
         }
-
-        .svelte-card {
-            width: 320px;
-            height: 360px;
-            margin: 0 auto;
-            margin-top: 25px;
-        }
     }
 </style>

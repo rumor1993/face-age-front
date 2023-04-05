@@ -79,4 +79,13 @@
 		margin: 0 auto;
 		display: block;
 	}
+
+	@media (max-width: 440px) {
+		.svelte-card {
+			width: 320px;
+			height: 360px;
+			margin: 0 auto;
+			margin-top: 25px;
+		}
+	}
 </style>
