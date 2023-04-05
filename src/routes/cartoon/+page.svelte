@@ -10,13 +10,12 @@
     let isLoadBarHidden = true
     let isSvelteCardHidden = false
     let isAlert = false
-    let loadingBarSize = 20
 
-    if (window.matchMedia("(max-width: 440px)")) {
-        loadingBarSize = 15
-    } else {
-        loadingBarSize = 20
-    }
+    import { setup } from 'svelte-match-media'
+
+    setup({
+        mobile: 'screen and (max-width: 440px)'
+    })
 
     async function handleUpload(event) {
         const file = event.target.files[0];
@@ -103,7 +102,7 @@
                     <div class="loading-bar-text">
                         <h3>Converting image to cartoon</h3>
                     </div>
-                    <BarLoader size="{loadingBarSize}" color="#9e9e9e" unit="1px" duration="1s"/>
+                    <BarLoader size="{15}" color="#9e9e9e" unit="1px" duration="1s"/>
                 </div>
             </div>
             <input type="file" style="display:none" on:change={handleUpload}>
