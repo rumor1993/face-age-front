@@ -5,7 +5,6 @@
     import { fade } from 'svelte/transition';
     import { Alert } from 'flowbite-svelte';
 
-    const isMobile = /Mobile|Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
     let imageUrl = "/src/lib/images/upload.png";
     let isLoadBarHidden = true
@@ -13,8 +12,10 @@
     let isAlert = false
     let loadingBarSize = 20
 
-    if (isMobile) {
+    if (window.matchMedia("(max-width: 440px)")) {
         loadingBarSize = 15
+    } else {
+        loadingBarSize = 20
     }
 
     async function handleUpload(event) {
@@ -224,5 +225,8 @@
             margin: 0 auto;
             margin-top: 25px;
         }
+
     }
+
+
 </style>
