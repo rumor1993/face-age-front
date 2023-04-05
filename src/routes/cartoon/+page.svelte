@@ -5,17 +5,10 @@
     import { fade } from 'svelte/transition';
     import { Alert } from 'flowbite-svelte';
 
-
     let imageUrl = "/src/lib/images/upload.png";
     let isLoadBarHidden = true
     let isSvelteCardHidden = false
     let isAlert = false
-
-    import { setup } from 'svelte-match-media'
-
-    setup({
-        mobile: 'screen and (max-width: 440px)'
-    })
 
     async function handleUpload(event) {
         const file = event.target.files[0];
