@@ -14,10 +14,18 @@
         border-radius: 25px;
         background-color: #ffffff;
         box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-        margin: 0 auto;
-        margin-bottom: 20px;
+        background-repeat: no-repeat;
+        background-position: center center;
         background-size: cover;
         background-image: var(--background-image);
         filter: var(--filter);
+    }
+
+    @media (max-width: 440px) {
+        .svelte-card {
+            width: 320px;
+            height: 360px;
+            margin: 0 auto;
+        }
     }
 </style>

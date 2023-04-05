@@ -63,7 +63,7 @@
 	.description {
 		font-size: 16px;
 		color: #85858a;
-		margin-bottom: 20px;
+		margin: 0px 20px 25px 20px;
 	}
 
 	.welcome {

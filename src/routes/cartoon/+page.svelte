@@ -118,6 +118,7 @@
 </section>
 
 <style>
+
     section {
         display: flex;
         flex-direction: column;
@@ -207,5 +208,14 @@
         right: 0;
         WIDTH: 50%;
         top: 25%;
+    }
+
+    @media (max-width: 440px) {
+        .svelte-card {
+            width: 320px;
+            height: 360px;
+            margin: 0 auto;
+            margin-top: 25px;
+        }
     }
 </style>
