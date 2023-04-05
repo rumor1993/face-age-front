@@ -9,6 +9,11 @@
     let isLoadBarHidden = true
     let isSvelteCardHidden = false
     let isAlert = false
+    let loadingBarSize = 20
+
+    if (matchMedia("screen and (max-width: 440px)").matches) {
+        loadingBarSize = 15
+    }
 
     async function handleUpload(event) {
         const file = event.target.files[0];
@@ -91,11 +96,11 @@
                     </div>
                 </div>
 
-                <div class="loading-bar" class:visually-hidden={isLoadBarHidden}>
+                <div class="loading-bar" class:visually-hidden={false}>
                     <div class="loading-bar-text">
                         <h3>Converting image to cartoon</h3>
                     </div>
-                    <BarLoader size="20" color="#9e9e9e" unit="1px" duration="1s"/>
+                    <BarLoader size="{loadingBarSize}" color="#9e9e9e" unit="1px" duration="1s"/>
                 </div>
             </div>
             <input type="file" style="display:none" on:change={handleUpload}>
