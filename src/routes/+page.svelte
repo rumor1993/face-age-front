@@ -1,8 +1,6 @@
 <script>
-	import fac_logo from '$lib/images/face-age-logo.png';
 	import SvelteCard from "./component/SvelteCard.svelte";
 	import Button from "./component/Button.svelte";
-
 </script>
 
 <svelte:head>
@@ -14,17 +12,32 @@
 	<h1>
 		<span class="welcome">
 			<div class="title">
-				<img src="{fac_logo}">
-				<strong>AI가 예측하는 <br> 나의 연령대별 얼굴은?</strong>
+<!--				<img src="{fac_logo}">-->
+				<strong>AI로 나의 얼굴을 <br> 만화스타일로 바꾼다면?</strong>
 			</div>
 
 			<div class="description">
-				자신이나 친구, 가족들의 사진을 올려보세요!  <br> AI가  어린시절부터 미래의 모습까지 그려준 이미지를 공유할 수 있습니다.
+				자신이나 친구, 가족들의 사진을 올려보세요!  <br> AI가 실제 사진을 만화 스타일의 모습으로 그려준 이미지를 공유할 수 있습니다.
+			</div>
+			<SvelteCard --background-image="url('/src/lib/images/cartoon3.png')"/>
+			<Button clickEventHandle={() => location.href="/cartoon"} text="바로가기"></Button>
+		</span>
+	</h1>
+</section>
+
+<section>
+	<h1>
+		<span class="welcome">
+			<div class="title">
+<!--				<img src="{fac_logo}">-->
+				<strong>이모지를 쉽고<br>빠르게 만들어서 사용하세요!</strong>
 			</div>
 
-			<Button path={"/face-age"}></Button>
-			<SvelteCard --background-image="url('/src/lib/images/girl.gif')"/>
-			<SvelteCard --background-image="url('/src/lib/images/man.gif')"/>
+			<div class="description">
+				슬랙, 텔레그램, 카카오톡등 <br> 직접 만든 이모지를 활용하여 채팅할 수 있습니다.
+			</div>
+			<SvelteCard --background-image="url('/src/lib/images/emoji.png')" --filter="brightness(1.23)" />
+			<Button clickEventHandle={() => location.href="/emoji"} text="바로가기"></Button>
 		</span>
 	</h1>
 </section>
@@ -33,9 +46,10 @@
 	section {
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
+		justify-content: flex-start;
 		align-items: center;
-		flex: 0.0;
+		height: 860px;
+		box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
 	}
 
 	h1 {

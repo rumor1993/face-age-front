@@ -1,14 +1,12 @@
 <script>
-    import SvelteCard from "../component/SvelteCard.svelte";
+
 </script>
 
+
 <section>
-    <h1>
-		<span class="face-age-page">
-            <SvelteCard />
-		</span>
-    </h1>
+    <div id="image-editor-container"></div>
 </section>
+
 
 <style>
     section {

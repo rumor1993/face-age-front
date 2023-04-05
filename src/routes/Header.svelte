@@ -1,7 +1,14 @@
 <script>
 	import Icon from 'svelte-icons-pack/Icon.svelte';
 	import HiSolidMenu from "svelte-icons-pack/hi/HiSolidMenu";
+	import RiSystemDeleteBack2Line from "svelte-icons-pack/ri/RiSystemDeleteBack2Line";
 	import rumorLogo from '$lib/images/rumor-lab-remove-mark.png';
+
+	let isActive = false
+
+	function toggleActive() {
+		isActive = !isActive
+	}
 </script>
 
 <header>
@@ -12,18 +19,23 @@
 	</div>
 	<nav>
 		<ul>
-			<li><a href="#">
-				<div class="menu-btn">
+			<li><a>
+				<div class="menu-button" on:click={toggleActive}>
 					<Icon src={HiSolidMenu} size="30" />
 				</div>
-				<div class="menu">
+
+				<div class="menu" class:active={isActive}>
+					<button class="back-button menu-button" class:active={isActive} on:click={toggleActive}>
+						<Icon src={RiSystemDeleteBack2Line} size="30" />
+					</button>
 					<ul>
-						<li><a href="#">메뉴1</a></li>
-						<li><a href="#">메뉴2</a></li>
-						<li><a href="#">메뉴3</a></li>
+
 					</ul>
 				</div>
-			</a></li>
+
+				<div class="menu-background" class:active={isActive}></div>
+			</a>
+			</li>
 		</ul>
 	</nav>
 </header>
@@ -35,7 +47,7 @@
 		height: 60px;
 		padding: 0 20px;
 		background-color: #ffffff;
-		box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.1);
+		box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.1);
 	}
 
 	.logo {
@@ -114,11 +126,10 @@
 		margin: 0;
 		height: 3em;
 		display: flex;
-		justify-content: center;
-		align-items: center;
 		list-style: none;
 		background: var(--background);
 		background-size: contain;
+		flex-direction: column;
 	}
 
 	li {
@@ -156,45 +167,70 @@
 		color: var(--color-theme-1);
 	}
 
+	.menu-button {
+		cursor: pointer;
+	}
 
-	/* 목차 페이지 스타일링 */
 	.menu {
-		display: flex;
 		position: fixed;
 		top: 0;
-		left: -250px;
-		width: 250px;
-		height: 100%;
-		background-color: #000000
-	;
-		z-index: 1;
-		transition: left 0.3s ease;
+		left: 50%;
+		transform: translateX(70%);
+		max-width: 560px;
+		width: 400px;
+		height: 100vh;
+		background-color: #fafafa;
+		z-index: 9999;
+		display: none;
+	}
+
+	.menu.active, .back-button.active {
+		transform: translateX(-30%);
+		display: block;
+	}
+
+	.menu-background.active {
+		position: fixed;
+		opacity: 0.5;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		max-width: 560px;
+		width: 560px;
+		height: 100vh;
+		background-color: #757575;
+		z-index: 100;
+	}
+
+	.back-button {
+		display: none;
+		position: absolute;
+		top: 20px;
+		left: 20px;
+		background-color: #fafafa;
+		border-style: none;
+
 	}
 
 	.menu ul {
-		list-style-type: none;
-		padding: 0;
-		margin: 0;
+		position: relative;
+		top: 10%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background: #fafafa;
 	}
 
 	.menu li {
-		padding: 10px;
-		border-bottom: 1px solid #eeeeee;
+		font-size: 14px;
+		color: #333d4b;
+		margin-bottom: 30px;
+		margin-left: 40px;
 	}
 
-	.menu li:last-child {
-		border-bottom: none;
-	}
-
-	.menu a {
-		text-decoration: none;
-		color: #333333;
-		font-size: 16px;
-	}
-
-	/* 햄버거 버튼 클릭 시 목차 페이지 보이도록 처리 */
-	.menu-btn:checked + .menu {
-		left: 600px;
+	.menu .li-title {
+		font-size: 26px;
+		border-bottom: 1px solid;
+		margin: 20px
 	}
 
 </style>

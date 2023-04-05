@@ -1,7 +1,11 @@
 <script>
+    export let buttonText;
+
 </script>
 
-<div class="svelte-card"></div>
+<div class="svelte-card" class:button={buttonText != null}>
+
+</div>
 
 <style>
     .svelte-card {
@@ -14,5 +18,6 @@
         margin-bottom: 20px;
         background-size: cover;
         background-image: var(--background-image);
+        filter: var(--filter);
     }
 </style>
